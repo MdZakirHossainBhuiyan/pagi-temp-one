@@ -19,7 +19,7 @@ const PostProvider = ({children} : {children: React.ReactChild | React.ReactChil
     const [pageCount, setPageCount] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(false);
     const [postsInfoLength, setPostsInfoLength] = useState<number>(0);
-    const pageSize: number = 20;
+    // const pageSize: number = 20;
     const [currentPage, setCurrentPage] = useState<number>(1);
 
     useEffect(() => {
@@ -28,18 +28,22 @@ const PostProvider = ({children} : {children: React.ReactChild | React.ReactChil
         }, 10000)
 
         return () => clearInterval(interval);
-    }, [])
+    }, [pageCount])
 
     useEffect(() => {
+        
         getPostsInfo();
+        
+    }, [pageCount]);
+
+    useEffect(() => {
         return () => {
             setPostsInfo(postsInfo);
         };
-    }, [pageCount])
+    }, [])
 
     const getPostsInfo = async () => {
         try{
-            
             setLoading(true);
 
             await axios.get(`https://hn.algolia.com/api/v1/search_by_date?tags=story&page=${pageCount}`)
@@ -53,11 +57,12 @@ const PostProvider = ({children} : {children: React.ReactChild | React.ReactChil
                 setPostsInfoLength(_postsInfo.length);
 
             })
+            
 
             setLoading(false);
             
         }
-        catch(e) {
+        catch(error) {
             setLoading(false);
         }
     }
