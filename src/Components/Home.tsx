@@ -35,7 +35,7 @@ const tableColumns: readonly TableColumn[] = [
 ]
 
 const Home = () => {
-    const { postsInfo, pageCount, handlePageChange, currentPage, loading, postsInfoLength } = usePost();
+    const { postsInfo, handlePageChange, currentPage, loading, postsInfoLength } = usePost();
     const history = useHistory();
     const pageSize: number = 20;
 
