@@ -73,7 +73,7 @@ const Home = () => {
                                 {
                                     postsInfo.slice((currentPage - 1)*pageSize, (currentPage - 1)*pageSize + pageSize).map((row, index) => {
                                         return (
-                                            <TableRow key={index} onClick={() => getDetailsInfo(row)} >
+                                            <TableRow style={{"cursor": "pointer"}} key={index} onClick={() => getDetailsInfo(row)} >
                                                 {
                                                     tableColumns.map(column => {
                                                         const postInfoValue = row[column.id];
