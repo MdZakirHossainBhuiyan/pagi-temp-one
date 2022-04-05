@@ -7,13 +7,15 @@ const Details = () => {
     const post = state as PostsDataInterface;
 
     return (
-        <div data-testis="detailsPosts">
-            <pre data-testid="postDetails">
-                {
-                    JSON.stringify(post, null, 2)
-                }
-            </pre>
-        </div>
+        <>
+            <div data-testid="detailsPosts">                
+                <pre data-testid="postDetails">
+                    {
+                        JSON.stringify(post, null, 2)
+                    }
+                </pre>
+            </div>
+        </>
     );
 };
 

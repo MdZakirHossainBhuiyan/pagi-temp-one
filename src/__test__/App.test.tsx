@@ -19,11 +19,9 @@ describe("App Router", () => {
     });
 
     test("Should go to '/details' from App", async () => {
-        await act(async () => {
-            renderWithMemoryRouter("/details", <App />);
-        });
+        renderWithMemoryRouter("/details", <App />);
 
-        elementFinder("detailsPosts");
+        await elementFinder("detailsPosts");
     });
 
     test("should render NotFound page on invalid route", async () => {
