@@ -25,7 +25,7 @@ describe("Testing Home Component", () => {
         });
 
         waitFor(() => {
-            expect(screen.getByTestId("detailsPosts")).toBeInTheDocument();
+            expect(screen.getByText("Post List")).toBeInTheDocument();
         });
     });
 
@@ -40,7 +40,7 @@ describe("Testing Home Component", () => {
             );
         });
     
-        elementFinder("loaderTest");
+        await elementFinder("loaderTest");
     });
 
     test("should render header part of table", async () => {
@@ -97,6 +97,6 @@ describe("Testing Home Component", () => {
             );
         });
     
-        elementFinder("pagePagination");
+        await elementFinder("pagePagination");
     });  
 })

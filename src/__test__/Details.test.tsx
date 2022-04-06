@@ -28,7 +28,7 @@ describe("should render details components", () => {
                     </MemoryRouter>
                 </BrowserRouter>
             );
-          });
+        });
     
         await elementFinder("postDetails");
     });
