@@ -19,16 +19,6 @@ describe("Testing Home Component", () => {
         });
     });
 
-    test("should initially render header of component", async () => {
-        await act(async () => {
-            renderWithMemoryRouter("/", <Home />);
-        });
-
-        waitFor(() => {
-            expect(screen.getByText("Post List")).toBeInTheDocument();
-        });
-    });
-
     test("should render loader of component", async () => {
         await act(async () => {
             render(
@@ -40,7 +30,7 @@ describe("Testing Home Component", () => {
             );
         });
     
-        await elementFinder("loaderTest");
+        elementFinder("loaderTest");
     });
 
     test("should render header part of table", async () => {
@@ -97,6 +87,6 @@ describe("Testing Home Component", () => {
             );
         });
     
-        await elementFinder("pagePagination");
-    });  
+        elementFinder("pagePagination");
+    }); 
 })
